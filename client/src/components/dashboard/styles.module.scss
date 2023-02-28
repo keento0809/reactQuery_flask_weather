@@ -1,0 +1,23 @@
+/*  styles for weeklyDashboard component  */
+.wDashboard {
+  padding: 0 0.5rem;
+  padding-top: 3rem;
+
+  &_dateRender {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-start: 1;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    font-size: 14px;
+  }
+  &_leftContent {
+    text-align: left;
+  }
+  &_centerContent {
+    font-weight: bold;
+  }
+  &_rightContent {
+    text-align: right;
+  }
+}
