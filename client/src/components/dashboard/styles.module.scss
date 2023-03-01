@@ -1,7 +1,18 @@
+/*  styles for dashboard component  */
+.dashboard {
+  &_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &_contents {
+    padding-top: 1rem;
+  }
+}
+
 /*  styles for weeklyDashboard component  */
 .wDashboard {
-  padding: 0 0.5rem;
-  padding-top: 3rem;
+  padding: 0 0.5rem 2rem;
 
   &_dateRender {
     display: grid;

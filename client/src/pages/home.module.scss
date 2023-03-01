@@ -1,9 +1,13 @@
 .home {
   &_wrapper {
-    padding: 1rem 1.5rem;
+    padding: 0rem 1.5rem;
+    max-height: 100svh;
   }
   &_container {
-    padding: 2rem 0;
+    height: 100svh;
+    max-height: 100svh;
     text-align: center;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
   }
 }
