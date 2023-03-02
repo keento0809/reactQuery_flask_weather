@@ -1,4 +1,5 @@
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import styles from "./styles.module.scss";
 
 type Props = {
   handleChange: (val: any) => void;
@@ -6,7 +7,7 @@ type Props = {
 
 const LocationInput = ({ handleChange }: Props) => {
   return (
-    <div>
+    <div className={styles["locationInput"]}>
       <GooglePlacesAutocomplete
         apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
         selectProps={{
