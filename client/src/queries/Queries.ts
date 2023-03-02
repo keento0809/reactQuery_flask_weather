@@ -3,6 +3,7 @@ type LatLonObj = {
   lon: number;
 };
 
+// Get location data from openWeatherMap API
 export const getCurrLocationWeather = async (latLon: LatLonObj) => {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latLon["lat"]}&lon=${
@@ -16,6 +17,7 @@ export const getCurrLocationWeather = async (latLon: LatLonObj) => {
   return res;
 };
 
+// Get weekly (next 5 days) weather data from openWeatherMap API
 export const getWeeklyLocationWeather = async (latLon: LatLonObj) => {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${

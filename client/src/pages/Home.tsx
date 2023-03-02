@@ -5,6 +5,7 @@ import { getCurrLocationWeather } from "../queries/Queries";
 import { useQuery } from "react-query";
 import WeeklyDashboard from "../components/dashboard/weeklyDashboard";
 import styles from "./home.module.scss";
+import Header from "../components/header/Header";
 
 const Home = () => {
   const [location, setLocation] = useState("Vancouver");
@@ -43,6 +44,7 @@ const Home = () => {
 
   return (
     <div className={styles["home_wrapper"]}>
+      <Header />
       <div>
         <LocationInput handleChange={handleChangeLocation} />
       </div>
