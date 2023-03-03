@@ -1,16 +1,20 @@
+@import "../../styles//color.module.scss";
+
 .header {
   position: fixed;
   top: 1rem;
   z-index: 40;
-  outline: none;
-  border: none;
   background-color: transparent;
+  color: $secondary-color;
 
   & svg {
     font-size: 64px;
     padding: 1rem;
     border-radius: 50%;
-    background-color: #2d3542;
-    fill: #e6effa;
+    background-color: $secondary-bg-color;
+    fill: $secondary-color;
+    outline: none;
+    border: none;
+    cursor: pointer;
   }
 }
