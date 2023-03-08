@@ -13,6 +13,7 @@
 /*  styles for weeklyDashboard component  */
 .wDashboard {
   padding: 0 0.5rem 2rem;
+  min-height: 266px;
 
   &_dateRender {
     display: grid;
@@ -30,5 +31,10 @@
   }
   &_rightContent {
     text-align: right;
+  }
+  &_spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
