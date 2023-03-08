@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import { getWeatherIcon } from "../../helper/getWeatherIcon";
 import { getWeeklyLocationWeather } from "../../queries/Queries";
 import ThreeDotsSpinner from "../spinner/ThreeDotsSpinner";
 import styles from "./styles.module.scss";
@@ -37,10 +38,10 @@ const WeeklyDashboard = ({ latLon }: Props) => {
           {dateInfo[0]}, {dateInfo[1]} {dateInfo[2]}
         </p>
         <p className={styles["wDashboard_centerContent"]}>
-          {d.weather[0].main}
+          {getWeatherIcon(d.weather[0].main)}
         </p>
         <div className={styles["wDashboard_rightContent"]}>
-          <span>{Math.floor(d.main.temp_max)}°</span>/
+          <span>{Math.floor(d.main.temp_max)}°</span>&nbsp;/&nbsp;
           <span>{Math.floor(d.main.temp_min)}°</span>
         </div>
       </div>
