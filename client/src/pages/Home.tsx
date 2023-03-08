@@ -15,7 +15,7 @@ const Home = () => {
   // Somehow replacing this function ended up crashing codes
   const getLatLog = async () => {
     const response = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=2&appid=${
+      `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=2&appid=${
         import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY
       }`
     );
