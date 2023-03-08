@@ -1,4 +1,4 @@
-import SearchIcon from "@mui/icons-material/Search";
+import { AiOutlineSearch } from "react-icons/ai";
 import styles from "./styles.module.scss";
 import { motion } from "framer-motion";
 import LocationInput from "../inputs/LocationInput";
@@ -17,7 +17,7 @@ const Header = ({ onChange }: Props) => {
         whileTap={{ scale: 1.1 }}
         className={styles["header"]}
       >
-        <SearchIcon />
+        <AiOutlineSearch />
       </motion.div> */}
       <LocationInput onChange={onChange} />
     </>
