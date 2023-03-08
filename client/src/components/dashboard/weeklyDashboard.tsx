@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import { getWeeklyLocationWeather } from "../../queries/Queries";
+import ThreeDotsSpinner from "../spinner/ThreeDotsSpinner";
 import styles from "./styles.module.scss";
 
 type Props = {
@@ -11,7 +12,12 @@ const WeeklyDashboard = ({ latLon }: Props) => {
     getWeeklyLocationWeather(latLon)
   );
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className={styles["wDashboard_spinner"]}>
+        <ThreeDotsSpinner />
+      </div>
+    );
   if (error) return <div>An error occurs...</div>;
 
   const dataRenderArr = data?.list.filter(

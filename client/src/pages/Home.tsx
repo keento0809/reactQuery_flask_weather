@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import WeeklyDashboard from "../components/dashboard/weeklyDashboard";
 import styles from "./home.module.scss";
 import Header from "../components/header/Header";
-import ThreeDotsSpinner from "../components/spinner/ThreedotsSpinner";
+import ThreeDotsSpinner from "../components/spinner/ThreeDotsSpinner";
 
 const Home = () => {
   const [location, setLocation] = useState("Vancouver");
@@ -45,16 +45,9 @@ const Home = () => {
 
   return (
     <div className={styles["home_wrapper"]}>
-      <Header />
-      <div>
-        <LocationInput handleChange={handleChangeLocation} />
-      </div>
+      <Header onChange={handleChangeLocation} />
       <div className={styles["home_container"]}>
-        {isLoading && (
-          <div>
-            <ThreeDotsSpinner />
-          </div>
-        )}
+        {isLoading && <div>Loading......</div>}
         {error && <div>An error has occurred,,,</div>}
         {currData && <Dashboard currData={currData} />}
         {currData && <WeeklyDashboard latLon={latLon} />}
