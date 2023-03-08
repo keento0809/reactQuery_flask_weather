@@ -4,9 +4,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem 0;
   }
   &_contents {
-    padding-top: 1rem;
+    // padding-top: 1rem;
+  }
+  &_icon {
+    font-size: 3rem;
+  }
+  &_temp {
+    font-weight: lighter;
+    font-size: 3rem;
+  }
+  &_locationInfo {
+    padding-top: 4rem;
+  }
+  &_location {
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+  }
+  &_weather {
+    padding-top: 2rem;
+    font-size: 14px;
+  }
+  &_wind {
+    font-size: 14px;
   }
 }
 
