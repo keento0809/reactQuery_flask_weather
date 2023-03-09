@@ -1,4 +1,5 @@
 import styles from "./styles.module.scss";
+import { getWeatherIcon } from "../../helper/getWeatherIcon";
 
 type Props = {
   currData: any;
@@ -9,10 +10,19 @@ const Dashboard = ({ currData }: Props) => {
   return (
     <div className={styles["dashboard_container"]}>
       <div className={styles["dashboard_contents"]}>
-        <h3>{currData?.name}</h3>
-        <p>{Math.floor(currData?.main.temp_min)}°</p>
-        <h4>{currData?.weather[0].main}</h4>
-        <p>{currData?.wind.speed} m/s</p>
+        <span className={styles["dashboard_icon"]}>
+          {getWeatherIcon(currData?.weather[0].main)}
+        </span>
+        <h3 className={styles["dashboard_temp"]}>
+          {Math.floor(currData?.main.temp_min)}°
+        </h3>
+        <div className={styles["dashboard_locationInfo"]}>
+          <h3 className={styles["dashboard_location"]}>{currData?.name}</h3>
+          <p className={styles["dashboard_weather"]}>
+            {currData?.weather[0].main}
+          </p>
+          <p className={styles["dashboard_wind"]}>{currData?.wind.speed} m/s</p>
+        </div>
       </div>
     </div>
   );

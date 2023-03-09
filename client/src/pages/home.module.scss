@@ -3,11 +3,19 @@
     padding: 0rem 1.5rem;
     max-height: 100svh;
   }
+
   &_container {
     height: 100svh;
     max-height: 100svh;
     text-align: center;
     display: grid;
     grid-template-rows: 2fr 1fr;
+  }
+
+  &_spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 266px;
   }
 }

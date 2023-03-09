@@ -1,0 +1,21 @@
+@import "../../styles//color.module.scss";
+
+.header {
+  position: fixed;
+  top: 1rem;
+  z-index: 40;
+  width: 100%;
+  background-color: transparent;
+  color: $secondary-color;
+
+  & svg {
+    font-size: 64px;
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: $secondary-bg-color;
+    fill: $secondary-color;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+}
