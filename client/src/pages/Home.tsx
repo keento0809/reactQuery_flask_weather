@@ -14,10 +14,9 @@ const Home = () => {
   // Somehow replacing this function ended up crashing codes
   const getLatLog = async () => {
     const response = await fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=2&appid=806b5a9230bb5d5e4370ac1b77652918`
-      // `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=2&appid=${
-      //   import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY
-      // }`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=2&appid=${
+        import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY
+      }`
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
