@@ -6,10 +6,12 @@ import { useQuery } from "react-query";
 import WeeklyDashboard from "../components/dashboard/weeklyDashboard";
 import styles from "./home.module.scss";
 import Header from "../components/header/Header";
+import Modal from "../components/modal/Modal";
 
 const Home = () => {
   const [location, setLocation] = useState("Vancouver");
   const [latLon, setLatLon] = useState({ lat: 49.2608724, lon: -123.113952 });
+  const [loadingStatus, setLoadingStatus] = useState(false);
 
   // Somehow replacing this function ended up crashing codes
   const getLatLog = async () => {
@@ -42,16 +44,23 @@ const Home = () => {
     setLocation(value.label.split(",")[0]);
   };
 
+  const handleSetLoadingStatus = () => {
+    setLoadingStatus(true);
+  };
+
   return (
-    <div className={styles["home_wrapper"]}>
-      <Header onChange={handleChangeLocation} />
-      <div className={styles["home_container"]}>
-        {isLoading && <div>Loading......</div>}
-        {error && <div>An error has occurred,,,</div>}
-        {currData && <Dashboard currData={currData} />}
-        {currData && <WeeklyDashboard latLon={latLon} />}
+    <>
+      <div className={styles["home_wrapper"]}>
+        {!currData && <Modal />}
+        <Header onChange={handleChangeLocation} />
+        <div className={styles["home_container"]}>
+          {isLoading && <div>Loading......</div>}
+          {error && <div>An error has occurred,,,</div>}
+          {currData && <Dashboard currData={currData} />}
+          {currData && <WeeklyDashboard latLon={latLon} />}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getWeatherIcon } from "../../helper/getWeatherIcon";
 import { getWeeklyLocationWeather } from "../../queries/Queries";
