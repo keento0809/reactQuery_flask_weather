@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import WeeklyDashboard from "../components/dashboard/weeklyDashboard";
 import styles from "./home.module.scss";
 import Header from "../components/header/Header";
+import Modal from "../components/modal/Modal";
 
 const Home = () => {
   const [location, setLocation] = useState("Vancouver");
@@ -14,10 +15,9 @@ const Home = () => {
   // Somehow replacing this function ended up crashing codes
   const getLatLog = async () => {
     const response = await fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=2&appid=806b5a9230bb5d5e4370ac1b77652918`
-      // `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=2&appid=${
-      //   import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY
-      // }`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=2&appid=${
+        import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY
+      }`
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -45,6 +45,7 @@ const Home = () => {
 
   return (
     <div className={styles["home_wrapper"]}>
+      {!currData && <Modal />}
       <Header onChange={handleChangeLocation} />
       <div className={styles["home_container"]}>
         {isLoading && <div>Loading......</div>}
