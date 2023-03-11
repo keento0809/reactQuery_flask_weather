@@ -13,6 +13,7 @@ const LocationInput = ({ onChange }: Props) => {
         selectProps={{
           location,
           onChange,
+          placeholder: "Enter location...",
         }}
       />
     </div>
