@@ -1,9 +1,9 @@
-import Dashboard from "../components/dashboard/Dashboard";
+import Dashboard from "../components/dashboards/Dashboard";
 import LocationInput from "../components/inputs/LocationInput";
 import { useState } from "react";
 import { getCurrLocationWeather } from "../queries/Queries";
 import { useQuery } from "react-query";
-import WeeklyDashboard from "../components/dashboard/weeklyDashboard";
+import WeeklyDashboard from "../components/dashboards/weeklyDashboard";
 import styles from "./home.module.scss";
 import Header from "../components/header/Header";
 import Modal from "../components/modal/Modal";
