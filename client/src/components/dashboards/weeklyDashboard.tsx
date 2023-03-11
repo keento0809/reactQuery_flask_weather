@@ -34,7 +34,11 @@ const WeeklyDashboard = ({ latLon }: Props) => {
       .filter((d: any, i: number) => i < 3);
 
     return (
-      <div key={d.dt_txt} className={styles["wDashboard_dateRender"]}>
+      <div
+        key={d.dt_txt}
+        className={styles["wDashboard_dateRender"]}
+        id="これやろ"
+      >
         <p className={styles["wDashboard_leftContent"]}>
           {dateInfo[0]}, {dateInfo[1]} {dateInfo[2]}
         </p>
@@ -49,7 +53,11 @@ const WeeklyDashboard = ({ latLon }: Props) => {
     );
   });
 
-  return <div className={styles["wDashboard"]}>{dataRender}</div>;
+  return (
+    <div className={styles["wDashboard"]}>
+      <div className={styles["wDashboard_container"]}>{dataRender}</div>
+    </div>
+  );
 };
 
 export default WeeklyDashboard;

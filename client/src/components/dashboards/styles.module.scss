@@ -6,9 +6,6 @@
     align-items: center;
     padding: 1rem 0;
   }
-  &_contents {
-    // padding-top: 1rem;
-  }
   &_icon {
     font-size: 3rem;
   }
@@ -36,6 +33,9 @@
 .wDashboard {
   padding: 0 0.5rem 2rem;
   min-height: 266px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &_dateRender {
     display: grid;
@@ -44,6 +44,12 @@
     align-items: center;
     padding-bottom: 1.5rem;
     font-size: 14px;
+  }
+  &_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-start: 1;
+    align-items: center;
   }
   &_leftContent {
     text-align: left;
@@ -59,5 +65,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding-top: 7rem;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+
+    &_container {
+      grid-template-columns: none;
+    }
+    &_dateRender {
+      padding-bottom: 3.5rem;
+    }
   }
 }
