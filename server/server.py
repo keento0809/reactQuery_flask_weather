@@ -1,62 +1,51 @@
 # Standard libraries of Python
-import json
 import os
-import sqlite3
 
 # Libraries
-from flask import Flask
+from flask import Flask, redirect, url_for
+from authlib.integrations.flask_client import OAuth
 from flask_cors import CORS
-from flask_login import (
-    LoginManager,
-    current_user,
-    login_required,
-    login_user,
-    logout_user,
-)
-from oauthlib.oauth2 import WebApplicationClient
-from oauthlib.oauth2 import requests
-
-# Internal imports
-from db import init_db_command
-from user import user
-
-# Configuration
-GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
-GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
-GOOGLE_DISCOVERY_URL = (
-    "https://accounts.google.com/.well-known/openid-configuration")
 
 # Setup Flask app
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY") or os.urandom(24)
+app.secret_key = os.urandom(24)
+
+oauth = OAuth(app)
 CORS(app)
 
-# User session management setup
-# https://flask-login.readthedocs.io/en/latest
-login_manager = LoginManager()
-login_manager.init_app(app)
 
-# DB setup
-try:
-    init_db_command()
-except sqlite3.OperationalError:
-    # Assume it's already been created
-    pass
-
-# OAuth 2 client setup
-client = WebApplicationClient(GOOGLE_CLIENT_ID)
-
-# Flask-Login helper to retrieve a user from our db
+@app.route('/')
+def index():
+    return 'main page'
 
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
+@app.route('/google/')
+def google():
+    GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
+    GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
+
+    CONF_URL = 'https://accounts.google.com/.well-known/openid-configuration'
+    oauth.register(
+        name='google',
+        client_id=GOOGLE_CLIENT_ID,
+        client_secret=GOOGLE_CLIENT_SECRET,
+        server_metadata_url=CONF_URL,
+        client_kwargs={
+            'scope': 'openid email profile'
+        }
+    )
+    # Redirect to google_auth function
+    redirect_uri = url_for('google_auth', _external=True)
+    print(redirect_uri)
+    return oauth.google.authorize_redirect(redirect_uri)
 
 
-@app.route("/members")
-def members():
-    return {"members": ["Member1", "Member2", "Member3"]}
+@app.route('/google/auth/')
+def google_auth():
+    token = oauth.google.authorize_access_token()
+    user = oauth.google.parse_id_token(token)
+    print(" user with google login ", user)
+    return redirect('/')
 
 
 if (__name__ == "__main__"):
