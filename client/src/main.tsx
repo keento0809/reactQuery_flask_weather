@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
 import ErrorPage from "./pages/ErrorPage";
 import GoogleAuth from "./pages/GoogleAuth";
+import Test from "./pages/Test";
 
 // Declare queryClient for reactQuery
 const queryClient = new QueryClient();
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/googleauth",
     element: <GoogleAuth />,
+  },
+  {
+    path: "/test",
+    element: <Test />,
   },
 ]);
 
