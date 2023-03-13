@@ -1,11 +1,12 @@
 @import "../styles/color.module.scss";
 
-nav {
+.nav {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   width: 300px;
+  background: transparent;
 }
 
 .background {
@@ -14,10 +15,10 @@ nav {
   left: 0;
   bottom: 0;
   width: 300px;
-  background: $primary-bg-color;
+  background: transparent;
 }
 
-button {
+.button {
   outline: none;
   border: none;
   -webkit-user-select: none;
@@ -26,11 +27,12 @@ button {
   cursor: pointer;
   position: absolute;
   top: 18px;
-  left: 15px;
+  left: 1rem;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   background: transparent;
+  z-index: 40;
 }
 
 ul,
@@ -39,20 +41,27 @@ li {
   padding: 0;
 }
 
-ul {
+.ul {
   padding: 25px;
   position: absolute;
-  top: 100px;
+  top: 50px;
+  left: 1.2rem;
   width: 100%;
   height: 100%;
+  background: transparent;
+
+  &_input {
+    padding-bottom: 3rem;
+  }
 }
 
-li {
+.li {
   list-style: none;
   margin-bottom: 3rem;
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .icon-placeholder {

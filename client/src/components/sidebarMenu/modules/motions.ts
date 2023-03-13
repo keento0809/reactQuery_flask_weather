@@ -20,7 +20,7 @@ export const sidebar = {
 };
 
 /* Motion for MenuItem */
-export const variants = {
+export const variantsForMenuItem = {
   open: {
     y: 0,
     opacity: 1,
