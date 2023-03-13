@@ -1,5 +1,7 @@
 @import "../../styles/color.module.scss";
 
+/* Basic Button  */
+
 .basicButton {
   padding: 0.6rem 2rem;
   border: 1px solid $primary-color;
@@ -13,4 +15,9 @@
     border-radius: 4px;
     transition: all 0.3s ease;
   }
+}
+
+/* GoogleLogin Button  */
+.googleLoginButton {
+  background: $primary-bg-color;
 }

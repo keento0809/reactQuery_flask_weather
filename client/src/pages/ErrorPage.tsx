@@ -1,5 +1,6 @@
 import { useRouteError } from "react-router-dom";
-import BasicButton from "../components/Button/BasicButton";
+import BasicButton from "../components/buttons/BasicButton";
+import GoogleLoginButton from "../components/buttons/GoogleLoginButton";
 import styles from "./errorPage.module.scss";
 
 const ErrorPage = () => {
@@ -19,6 +20,7 @@ const ErrorPage = () => {
           <i>{error.statusText || error.message}</i>
         </p>
         <BasicButton onClick={handleBackToMainPage} />
+        <GoogleLoginButton />
       </div>
     </div>
   );

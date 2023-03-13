@@ -10,7 +10,7 @@ type Props = {
 const Header = ({ onChange }: Props) => {
   return (
     <>
-      {/* <motion.div
+      <motion.div
         animate={{ x: 300 }}
         transition={{ type: "spring", stiffness: 100 }}
         whileHover={{ scale: 1.2 }}
@@ -18,7 +18,7 @@ const Header = ({ onChange }: Props) => {
         className={styles["header"]}
       >
         <AiOutlineSearch />
-      </motion.div> */}
+      </motion.div>
       <LocationInput onChange={onChange} />
     </>
   );
