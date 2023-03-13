@@ -25,6 +25,7 @@ const WeeklyDashboard = ({ latLon }: Props) => {
   const dataRenderArr = data?.list.filter(
     (d: any, index: number) => (index + 1) % 8 === 0
   );
+  console.log(dataRenderArr);
 
   const dataRender = dataRenderArr?.map((d: any) => {
     const date = new Date(d.dt_txt.split(" ")[0]);
@@ -34,11 +35,7 @@ const WeeklyDashboard = ({ latLon }: Props) => {
       .filter((d: any, i: number) => i < 3);
 
     return (
-      <div
-        key={d.dt_txt}
-        className={styles["wDashboard_dateRender"]}
-        id="これやろ"
-      >
+      <div key={d.dt_txt} className={styles["wDashboard_dateRender"]}>
         <p className={styles["wDashboard_leftContent"]}>
           {dateInfo[0]}, {dateInfo[1]} {dateInfo[2]}
         </p>
