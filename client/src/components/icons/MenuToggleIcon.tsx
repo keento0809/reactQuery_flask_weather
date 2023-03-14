@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import styles from "../../pages/test.module.scss";
 
 const Path = (props: any) => (
   <motion.path
@@ -17,7 +18,7 @@ export const MenuToggleIcon = ({ toggle }: { toggle: any }) => (
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 1.05 }}
   >
-    <button onClick={toggle}>
+    <button onClick={toggle} className={styles["button"]}>
       <svg width="24" height="24" viewBox="0 0 24 24">
         <Path
           variants={{
