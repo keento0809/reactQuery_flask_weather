@@ -1,5 +1,4 @@
 import Dashboard from "../components/dashboards/Dashboard";
-import LocationInput from "../components/inputs/LocationInput";
 import { useState } from "react";
 import { getCurrLocationWeather } from "../queries/Queries";
 import { useQuery } from "react-query";
@@ -7,6 +6,7 @@ import WeeklyDashboard from "../components/dashboards/weeklyDashboard";
 import styles from "./home.module.scss";
 import Header from "../components/header/Header";
 import Modal from "../components/modal/Modal";
+import { LocationData } from "../types/Location";
 
 const Home = () => {
   const [location, setLocation] = useState("Vancouver");
@@ -39,7 +39,7 @@ const Home = () => {
     getCurrLocationWeather(latLon)
   );
 
-  const handleChangeLocation = (value: any) => {
+  const handleChangeLocation = (value: LocationData) => {
     setLocation(value.label.split(",")[0]);
   };
 

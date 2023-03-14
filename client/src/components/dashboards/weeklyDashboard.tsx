@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getWeatherIcon } from "../../helper/getWeatherIcon";
 import { getWeeklyLocationWeather } from "../../queries/Queries";
 import ThreeDotsSpinner from "../spinner/ThreeDotsSpinner";
 import styles from "./styles.module.scss";
+import { LatLon } from "../../types/Location";
 
 type Props = {
-  latLon: any;
+  latLon: LatLon;
 };
 
 const WeeklyDashboard = ({ latLon }: Props) => {
@@ -25,7 +25,6 @@ const WeeklyDashboard = ({ latLon }: Props) => {
   const dataRenderArr = data?.list.filter(
     (d: any, index: number) => (index + 1) % 8 === 0
   );
-  console.log(dataRenderArr);
 
   const dataRender = dataRenderArr?.map((d: any) => {
     const date = new Date(d.dt_txt.split(" ")[0]);

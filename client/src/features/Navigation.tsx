@@ -3,13 +3,9 @@ import { MenuItem } from "./MenuItem";
 import { SIDEBAR_MENU } from "../constants/sidebarMenu";
 import { variantsForNavigation } from "../components/sidebarMenu/modules/motions";
 import styles from "../pages/test.module.scss";
-import LocationInput from "../components/inputs/LocationInput";
+import { HandleChangeLocationFuncProps } from "../types/Location";
 
-type Props = {
-  onChange: (val: any) => void;
-};
-
-export const Navigation = ({ onChange }: Props) => (
+export const Navigation = ({ onChange }: HandleChangeLocationFuncProps) => (
   <>
     <motion.ul variants={variantsForNavigation} className={styles["ul"]}>
       {SIDEBAR_MENU.map((i, index) => (
