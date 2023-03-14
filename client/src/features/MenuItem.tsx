@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import LocationInput from "../components/inputs/LocationInput";
 import { variantsForMenuItem } from "../components/sidebarMenu/modules/motions";
-import styles from "../pages/test.module.scss";
+import styles from "../pages/styles/test.module.scss";
 import { LocationData } from "../types/Location";
 
 type Props = {
