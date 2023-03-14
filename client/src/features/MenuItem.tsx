@@ -2,11 +2,12 @@ import { motion } from "framer-motion";
 import LocationInput from "../components/inputs/LocationInput";
 import { variantsForMenuItem } from "../components/sidebarMenu/modules/motions";
 import styles from "../pages/test.module.scss";
+import { LocationData } from "../types/Location";
 
 type Props = {
   menuItem: string;
   index: number;
-  onChange: (val: any) => void;
+  onChange: (val: LocationData) => void;
 };
 
 export const MenuItem = ({ menuItem, index, onChange }: Props) => {

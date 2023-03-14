@@ -1,11 +1,7 @@
-import { AiOutlineSearch } from "react-icons/ai";
+import { HandleChangeLocationFuncProps } from "../../types/Location";
 import SideBarMenu from "../sidebarMenu/SideBarMenu";
 
-type Props = {
-  onChange: (val: any) => void;
-};
-
-const Header = ({ onChange }: Props) => {
+const Header = ({ onChange }: HandleChangeLocationFuncProps) => {
   return <SideBarMenu onChange={onChange} />;
 };
 

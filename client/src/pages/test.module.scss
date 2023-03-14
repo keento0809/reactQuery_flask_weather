@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 100%;
   background: transparent;
 }
 
@@ -14,7 +14,7 @@
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 100%;
   background: transparent;
 }
 
@@ -26,26 +26,20 @@
   -ms-user-select: none;
   cursor: pointer;
   position: absolute;
-  top: 18px;
-  left: 1rem;
-  width: 3rem;
-  height: 3rem;
+  top: 1rem;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   background: transparent;
   z-index: 40;
 }
 
-ul,
-li {
-  margin: 0;
-  padding: 0;
-}
-
 .ul {
-  padding: 25px;
+  padding: 1.5rem;
   position: absolute;
   top: 50px;
-  left: 1.2rem;
+  left: 0;
   width: 100%;
   height: 100%;
   background: transparent;
@@ -62,6 +56,7 @@ li {
   align-items: center;
   cursor: pointer;
   font-size: 14px;
+  background: transparent;
 }
 
 .icon-placeholder {
