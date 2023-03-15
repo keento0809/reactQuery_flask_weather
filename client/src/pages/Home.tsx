@@ -3,7 +3,7 @@ import { useState } from "react";
 import { getCurrLocationWeather } from "../queries/Queries";
 import { useQuery } from "react-query";
 import WeeklyDashboard from "../components/dashboards/weeklyDashboard";
-import styles from "./home.module.scss";
+import styles from "./styles/home.module.scss";
 import Header from "../components/header/Header";
 import Modal from "../components/modal/Modal";
 import { LocationData } from "../types/Location";

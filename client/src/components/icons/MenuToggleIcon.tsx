@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import styles from "../../pages/test.module.scss";
+import styles from "../../pages/styles/test.module.scss";
 
 const Path = (props: any) => (
   <motion.path
