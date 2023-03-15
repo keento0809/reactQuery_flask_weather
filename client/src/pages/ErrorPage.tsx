@@ -20,7 +20,6 @@ const ErrorPage = () => {
           <i>{error.statusText || error.message}</i>
         </p>
         <BasicButton onClick={handleBackToMainPage} />
-        <GoogleLoginButton />
       </div>
     </div>
   );
