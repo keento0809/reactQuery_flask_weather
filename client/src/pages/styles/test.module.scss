@@ -42,11 +42,13 @@
   left: 0;
   width: 100%;
   background: transparent;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease-out;
+  border-bottom: 1px solid transparent;
 
   &_isOpen {
     background: $primary-bg-color;
-    border-bottom: 1px solid $primary-color;
+    border-color: $primary-color;
+    transition: all 0.5s ease-out;
   }
 
   &_input {

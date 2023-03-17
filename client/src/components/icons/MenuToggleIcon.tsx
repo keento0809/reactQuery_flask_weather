@@ -1,7 +1,17 @@
 import { motion } from "framer-motion";
 import styles from "../../pages/styles/test.module.scss";
+import { MouseEventHandler } from "react";
 
-const Path = (props: any) => (
+interface PathProps {
+  d?: string;
+  variants: {
+    closed: { opacity: number } | { d: string };
+    open: { opacity: number } | { d: string };
+  };
+  transition?: { duration: number };
+}
+
+const Path = (props: PathProps) => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
@@ -11,12 +21,14 @@ const Path = (props: any) => (
   />
 );
 
-export const MenuToggleIcon = ({ toggle }: { toggle: any }) => (
+export const MenuToggleIcon = ({
+  toggle,
+}: {
+  toggle: MouseEventHandler<HTMLButtonElement>;
+}) => (
   <motion.div
     animate={{ x: 20 }}
     transition={{ type: "spring", stiffness: 100 }}
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 1.05 }}
   >
     <button onClick={toggle} className={styles["button"]}>
       <svg width="24" height="24" viewBox="0 0 24 24">

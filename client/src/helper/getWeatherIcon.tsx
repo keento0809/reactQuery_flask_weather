@@ -4,7 +4,7 @@ import { IoUmbrellaOutline } from "react-icons/io5";
 
 type Weather = "Clouds" | "Rain";
 
-export const getWeatherIcon = (weather: Weather) => {
+export const getWeatherIcon = (weather: String) => {
   switch (weather) {
     case "Clouds": {
       return <BsCloudy />;

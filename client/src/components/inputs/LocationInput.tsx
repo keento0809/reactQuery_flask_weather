@@ -12,8 +12,7 @@ const LocationInput = ({ onChange }: LocationOnChange) => {
           onChange,
           placeholder: "Enter location...",
           styles: {
-            input: (provided: any) => ({
-              ...provided,
+            input: () => ({
               fontSize: "16px",
             }),
           },

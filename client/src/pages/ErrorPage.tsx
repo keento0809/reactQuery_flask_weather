@@ -1,6 +1,5 @@
 import { useRouteError } from "react-router-dom";
 import BasicButton from "../components/buttons/BasicButton";
-import GoogleLoginButton from "../components/buttons/GoogleLoginButton";
 import styles from "./styles/errorPage.module.scss";
 
 const ErrorPage = () => {
