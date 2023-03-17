@@ -1,6 +1,10 @@
 @import "../../styles/color.module.scss";
 
 .locationInput {
-  position: relative;
   width: 100%;
+
+  &_t {
+    position: fixed;
+    width: 366px;
+  }
 }
