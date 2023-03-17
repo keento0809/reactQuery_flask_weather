@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 
 const LocationInput = ({ onChange }: LocationOnChange) => {
   return (
-    <div className={styles["locationInput"]}>
+    <div className={styles["locationInput_t"]}>
       <GooglePlacesAutocomplete
         apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
         selectProps={{
