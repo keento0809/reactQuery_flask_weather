@@ -1,8 +1,5 @@
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
-import {
-  PropsWithHandleChangeLocationFunc,
-  LocationOnChange,
-} from "../../types/Location";
+import { LocationOnChange } from "../../types/Location";
 import styles from "./styles.module.scss";
 
 const LocationInput = ({ onChange }: LocationOnChange) => {
@@ -14,7 +11,12 @@ const LocationInput = ({ onChange }: LocationOnChange) => {
           location,
           onChange,
           placeholder: "Enter location...",
-          autoFocus: false,
+          styles: {
+            input: (provided: any) => ({
+              ...provided,
+              fontSize: "16px",
+            }),
+          },
         }}
       />
     </div>
