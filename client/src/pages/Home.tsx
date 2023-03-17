@@ -55,7 +55,6 @@ const Home = () => {
         toggleOpen={toggleOpen}
       />
       <div className={styles["home_container"]}>
-        {isLoading && <div>Loading......</div>}
         {error && <div>An error has occurred,,,</div>}
         {currData && <Dashboard currData={currData} />}
         {currData && <WeeklyDashboard latLon={latLon} />}

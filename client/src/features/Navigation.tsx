@@ -3,12 +3,12 @@ import { MenuItem } from "./MenuItem";
 import { SIDEBAR_MENU } from "../constants/sidebarMenu";
 import { variantsForNavigation } from "../components/sidebarMenu/modules/motions";
 import styles from "../pages/styles/test.module.scss";
-import { HandleChangeLocationFuncProps } from "../types/Location";
+import { PropsWithHandleChangeLocationFunc } from "../types/Location";
 
 export const Navigation = ({
   onChange,
   isOpen,
-}: HandleChangeLocationFuncProps) => (
+}: PropsWithHandleChangeLocationFunc) => (
   <>
     <motion.ul
       variants={variantsForNavigation}

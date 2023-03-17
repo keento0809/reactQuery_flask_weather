@@ -17,10 +17,19 @@ export type LocationData = {
   };
 };
 
-export type HandleChangeLocationFuncProps = {
+export type PropsWithHandleChangeLocationFunc = {
+  onChange: (val: LocationData) => void;
+  isOpen: boolean;
+};
+
+export type PropsWithToggleOpen = {
   onChange: (val: LocationData) => void;
   isOpen: boolean;
   toggleOpen: Cycle;
+};
+
+export type LocationOnChange = {
+  onChange: (val: LocationData) => void;
 };
 
 export type LatLon = {
