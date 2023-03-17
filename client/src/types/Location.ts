@@ -1,3 +1,5 @@
+import { Cycle } from "framer-motion";
+
 export type LocationData = {
   label: string;
   value: {
@@ -17,6 +19,8 @@ export type LocationData = {
 
 export type HandleChangeLocationFuncProps = {
   onChange: (val: LocationData) => void;
+  isOpen: boolean;
+  toggleOpen: Cycle;
 };
 
 export type LatLon = {

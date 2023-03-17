@@ -5,9 +5,17 @@ import { variantsForNavigation } from "../components/sidebarMenu/modules/motions
 import styles from "../pages/styles/test.module.scss";
 import { HandleChangeLocationFuncProps } from "../types/Location";
 
-export const Navigation = ({ onChange }: HandleChangeLocationFuncProps) => (
+export const Navigation = ({
+  onChange,
+  isOpen,
+}: HandleChangeLocationFuncProps) => (
   <>
-    <motion.ul variants={variantsForNavigation} className={styles["ul"]}>
+    <motion.ul
+      variants={variantsForNavigation}
+      className={
+        isOpen ? `${styles["ul"]} ${styles["ul_isOpen"]}` : styles["ul"]
+      }
+    >
       {SIDEBAR_MENU.map((i, index) => (
         <MenuItem key={i} menuItem={i} index={index} onChange={onChange} />
       ))}
