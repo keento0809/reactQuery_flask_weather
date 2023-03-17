@@ -4,6 +4,7 @@ import { getWeeklyLocationWeather } from "../../queries/Queries";
 import ThreeDotsSpinner from "../spinner/ThreeDotsSpinner";
 import styles from "./styles.module.scss";
 import { LatLon } from "../../types/Location";
+import { WeeklyWeatherInfo } from "../../types/weather";
 
 type Props = {
   latLon: LatLon;
@@ -23,15 +24,15 @@ const WeeklyDashboard = ({ latLon }: Props) => {
   if (error) return <div>An error occurs...</div>;
 
   const dataRenderArr = data?.list.filter(
-    (d: any, index: number) => (index + 1) % 8 === 0
+    (d: WeeklyWeatherInfo, index: number) => (index + 1) % 8 === 0
   );
 
-  const dataRender = dataRenderArr?.map((d: any) => {
+  const dataRender = dataRenderArr?.map((d: WeeklyWeatherInfo) => {
     const date = new Date(d.dt_txt.split(" ")[0]);
     const dateInfo = date
       .toString()
       .split(" ")
-      .filter((d: any, i: number) => i < 3);
+      .filter((d: string, i: number) => i < 3);
 
     return (
       <div key={d.dt_txt} className={styles["wDashboard_dateRender"]}>

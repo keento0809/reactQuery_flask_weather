@@ -1,9 +1,9 @@
 import styles from "./styles.module.scss";
 import { getWeatherIcon } from "../../helper/getWeatherIcon";
+import { BasicWeatherInfo } from "../../types/weather";
 
 type Props = {
-  currData: any;
-  weeklyData?: any;
+  currData: BasicWeatherInfo;
 };
 
 const Dashboard = ({ currData }: Props) => {

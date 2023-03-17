@@ -18,12 +18,7 @@ export const MenuItem = ({ menuItem, index, onChange }: Props) => {
       </motion.li>
     );
   return (
-    <motion.li
-      className={styles["li"]}
-      variants={variantsForMenuItem}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-    >
+    <motion.li className={styles["li"]} variants={variantsForMenuItem}>
       {menuItem}
     </motion.li>
   );
