@@ -47,22 +47,16 @@ export interface BasicWeatherInfo {
   wind: BasicWindObj;
 }
 
-interface WeekelyMainObj {
-  feels_like: number;
+interface WeekelyMainObj extends BasicMainObj {
   grnd_level: number;
   humidity: number;
-  pressure: number;
   sea_level: number;
   temp: number;
   temp_kf: number;
-  temp_max: number;
-  temp_min: number;
 }
 
-interface WeeklyWindObj {
-  deg: number;
+interface WeeklyWindObj extends BasicWindObj {
   gust: number;
-  speed: number;
 }
 
 export interface WeeklyWeatherInfo {
