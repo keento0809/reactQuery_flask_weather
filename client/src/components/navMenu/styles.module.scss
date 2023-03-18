@@ -1,0 +1,13 @@
+.navMenu {
+  // padding: 1.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 500px;
+
+  &_login {
+    padding-left: 2.5rem;
+    font-size: 16px;
+  }
+}
