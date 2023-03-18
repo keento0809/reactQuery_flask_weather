@@ -12,8 +12,19 @@ const LocationInput = ({ onChange }: LocationOnChange) => {
           onChange,
           placeholder: "Enter location...",
           styles: {
-            input: () => ({
+            control: (provided: any) => ({
+              ...provided,
+              background: "#2d3542",
+              focus: "none",
+            }),
+            input: (provided: any) => ({
+              ...provided,
               fontSize: "16px",
+            }),
+            indicators: (provided: any) => ({
+              ...provided,
+              color: "red",
+              visibility: "hidden",
             }),
           },
         }}
