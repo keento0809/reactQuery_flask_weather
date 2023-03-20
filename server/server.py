@@ -21,8 +21,8 @@ def index():
 
 @app.route('/google/')
 def google():
-    GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
-    GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", None)
+    GOOGLE_CLIENT_ID = 'GCI'
+    GOOGLE_CLIENT_SECRET = 'GCS'
 
     CONF_URL = 'https://accounts.google.com/.well-known/openid-configuration'
     oauth.register(
