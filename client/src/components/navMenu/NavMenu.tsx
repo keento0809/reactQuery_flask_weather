@@ -6,7 +6,12 @@ const NavMenu = ({ onChange }: LocationOnChange) => {
   return (
     <div className={styles["navMenu"]}>
       <LocationInput onChange={onChange} />
-      <span className={styles["navMenu_login"]}>Login</span>
+      <a
+        className={styles["navMenu_login"]}
+        href={`http://127.0.0.1:5000/google`}
+      >
+        Login
+      </a>
     </div>
   );
 };
