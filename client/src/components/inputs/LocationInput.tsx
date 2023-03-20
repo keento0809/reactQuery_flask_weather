@@ -18,6 +18,7 @@ const LocationInput = ({ onChange }: LocationOnChange) => {
             }),
             input: (provided: any) => ({
               ...provided,
+              backgroundColor: "#e6effa",
               fontSize: "16px",
             }),
           },
