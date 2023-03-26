@@ -1,13 +1,38 @@
+@import "../../styles//color.module.scss";
+
 .navMenu {
-  // padding: 1.5rem 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   max-width: 500px;
 
+  &_searchMode {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 500px;
+  }
+
   &_login {
     padding-left: 2.5rem;
     font-size: 16px;
+  }
+
+  &_close {
+    padding-left: 2.5rem;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &_icon {
+    font-size: 24px;
+    padding: 2rem;
+    border-radius: 50%;
   }
 }

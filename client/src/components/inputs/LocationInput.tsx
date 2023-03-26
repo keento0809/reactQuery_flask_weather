@@ -15,6 +15,7 @@ const LocationInput = ({ onChange }: LocationOnChange) => {
             control: (provided: any) => ({
               ...provided,
               focus: "none",
+              cursor: "pointer",
             }),
             input: (provided: any) => ({
               ...provided,

@@ -1,11 +1,11 @@
-import { useState } from "react";
 import { PropsWithToggleOpen } from "../../types/Location";
 import NavMenu from "../navMenu/NavMenu";
 import SideBarMenu from "../sidebarMenu/SideBarMenu";
 import styles from "./styles.module.scss";
 
 const Header = ({ onChange, isOpen, toggleOpen }: PropsWithToggleOpen) => {
-  const [isMore1024, setIsMore1024] = useState(window.innerWidth >= 1024);
+  const isMore1024 = window.innerWidth >= 1024;
+
   return (
     <header className={isMore1024 ? `${styles["header"]}` : ""}>
       {isMore1024 ? (
