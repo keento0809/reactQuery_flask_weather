@@ -1,16 +1,14 @@
 /* Motion for Header */
 export const variantsForHeader = {
-  header: {
-    x: 300,
-    transition: { type: "spring", stiffness: 100 },
-    whileHover: { scale: 1.2 },
-    whileTap: { scale: 1.1 },
-  },
-  hidden: { opacity: 0, x: 0, y: 50 },
-  visible: {
-    opacity: 1,
+  icon_initial: { x: 300, y: 0 },
+  icon_animate: {
     x: 0,
+    transition: { type: "spring", stiffness: 100 },
+  },
+  searchMode_initial: { x: 0, y: 100, opacity: 0 },
+  searchMode_animate: {
     y: 0,
-    transition: { duration: 0.4, stiffness: 100 },
+    opacity: 1,
+    transition: { type: "spring", stiffness: 50 },
   },
 };
