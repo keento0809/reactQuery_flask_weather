@@ -17,17 +17,30 @@
   }
 
   &_login {
-    padding-left: 2.5rem;
+    text-decoration: none;
+    margin-left: 3rem;
     font-size: 16px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
   }
 
   &_close {
-    padding-left: 2.5rem;
+    margin-left: 3rem;
     font-size: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
   }
 
   &_icon {
