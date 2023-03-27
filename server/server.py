@@ -3,8 +3,11 @@ import os
 
 # Libraries
 from flask import Flask, redirect, url_for
+from dotenv import load_dotenv
 from authlib.integrations.flask_client import OAuth
 from flask_cors import CORS
+
+load_dotenv()  # take environment variables from .env.
 
 # Setup Flask app
 app = Flask(__name__)
@@ -21,8 +24,8 @@ def index():
 
 @app.route('/google/')
 def google():
-    GOOGLE_CLIENT_ID = '756771179-834mjalvfmn28mkiq9totupj9g3vc0c3.apps.googleusercontent.com'
-    GOOGLE_CLIENT_SECRET = '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'
+    GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
+    GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
 
     CONF_URL = 'https://accounts.google.com/.well-known/openid-configuration'
     oauth.register(
