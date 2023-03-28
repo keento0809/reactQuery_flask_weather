@@ -2,7 +2,7 @@
 import os
 
 # Libraries
-from flask import Flask, redirect, url_for
+from flask import Flask, render_template, redirect, url_for
 from dotenv import load_dotenv
 from authlib.integrations.flask_client import OAuth
 from flask_cors import CORS
@@ -19,7 +19,7 @@ CORS(app)
 
 @app.route('/')
 def index():
-    return 'main page'
+    return render_template('index.html')
 
 
 @app.route('/google/')
@@ -46,9 +46,9 @@ def google():
 @app.route('/google/auth/')
 def google_auth():
     token = oauth.google.authorize_access_token()
-    user = oauth.google.parse_id_token(token)
+    user = oauth.google.parse_id_token(token, None)
     print(" user with google login ", user)
-    return redirect('/')
+    return redirect('http://127.0.0.1:5173/')
 
 
 if (__name__ == "__main__"):
