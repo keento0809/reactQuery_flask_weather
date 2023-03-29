@@ -3,6 +3,7 @@ import os
 
 # Libraries
 from flask import Flask, render_template, redirect, url_for
+from flask.wrappers import Response
 from dotenv import load_dotenv
 from authlib.integrations.flask_client import OAuth
 from flask_cors import CORS
