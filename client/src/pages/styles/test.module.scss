@@ -64,6 +64,10 @@
   cursor: pointer;
   font-size: 14px;
   background: transparent;
+
+  & a {
+    text-decoration: none;
+  }
 }
 
 .icon-placeholder {

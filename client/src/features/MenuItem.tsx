@@ -19,7 +19,12 @@ export const MenuItem = ({ menuItem, index, onChange }: Props) => {
     );
   return (
     <motion.li className={styles["li"]} variants={variantsForMenuItem}>
-      {menuItem}
+      <a
+        className={styles["navMenu_login"]}
+        href={`http://127.0.0.1:5000/google`}
+      >
+        Login
+      </a>
     </motion.li>
   );
 };

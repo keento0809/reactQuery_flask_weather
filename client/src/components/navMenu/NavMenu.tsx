@@ -6,12 +6,18 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { variantsForHeader } from "../header/module/motion";
 import { RxCross1 } from "react-icons/rx";
+import axios from "axios";
 
 const NavMenu = ({ onChange }: LocationOnChange) => {
   const [isSearchMode, setIsSearchMode] = useState(false);
 
   const handleToggleSearchMode = () => {
     setIsSearchMode(!isSearchMode);
+  };
+
+  const handleLogin = async () => {
+    const loginData = await axios.get(`http://127.0.0.1:5000/google`);
+    console.log(loginData);
   };
 
   return (
@@ -32,12 +38,15 @@ const NavMenu = ({ onChange }: LocationOnChange) => {
           className={styles["navMenu_searchMode"]}
         >
           <LocationInput onChange={onChange} />
-          <a
+          <span className={styles["navMenu_login"]} onClick={handleLogin}>
+            Login
+          </span>
+          {/* <a
             className={styles["navMenu_login"]}
             href={`http://127.0.0.1:5000/google`}
           >
             Login
-          </a>
+          </a> */}
           <div
             className={styles["navMenu_close"]}
             onClick={handleToggleSearchMode}
