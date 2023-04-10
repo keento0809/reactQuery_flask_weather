@@ -12,20 +12,17 @@ const SideBarMenu = ({ onChange, isOpen, toggleOpen }: PropsWithToggleOpen) => {
   const { height } = useDimensions(containerRef);
 
   return (
-    <>
-      <motion.nav
-        className={styles["nav"]}
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        custom={height}
-        ref={containerRef}
-      >
-        <motion.div className={styles["background"]} variants={sidebar} />
-        <Navigation onChange={onChange} isOpen={isOpen} />
-        <MenuToggleIcon toggle={() => toggleOpen()} />
-        <div></div>
-      </motion.nav>
-    </>
+    <motion.nav
+      className={styles["nav"]}
+      initial={false}
+      animate={isOpen ? "open" : "closed"}
+      custom={height}
+      ref={containerRef}
+    >
+      <motion.div className={styles["background"]} variants={sidebar} />
+      <Navigation onChange={onChange} isOpen={isOpen} />
+      <MenuToggleIcon toggle={() => toggleOpen()} />
+    </motion.nav>
   );
 };
 

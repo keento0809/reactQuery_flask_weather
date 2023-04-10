@@ -4,9 +4,11 @@ import { BasicWeatherInfo } from "../../types/weather";
 
 type Props = {
   currData: BasicWeatherInfo;
+  locationName: string;
 };
 
-const Dashboard = ({ currData }: Props) => {
+const Dashboard = ({ currData, locationName }: Props) => {
+  console.log("render-dashboard");
   return (
     <div className={styles["dashboard_container"]}>
       <div className={styles["dashboard_contents"]}>
@@ -17,7 +19,9 @@ const Dashboard = ({ currData }: Props) => {
           {Math.floor(currData?.main.temp_min)}°
         </h3>
         <div className={styles["dashboard_locationInfo"]}>
-          <h3 className={styles["dashboard_location"]}>{currData?.name}</h3>
+          <h3 className={styles["dashboard_location"]}>
+            {locationName && locationName}
+          </h3>
           <p className={styles["dashboard_weather"]}>
             {currData?.weather[0].main}
           </p>

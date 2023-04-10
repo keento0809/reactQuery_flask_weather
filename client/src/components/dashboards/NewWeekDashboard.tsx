@@ -10,7 +10,10 @@ type Props = {
 };
 
 const NewWeeklyDashboard = ({ latLon, weeklyWeatherData }: Props) => {
+  //
   const isFetching = useIsFetching();
+
+  console.log("render-weekly-dashboard");
 
   const weeklyWeatherDataRender = weeklyWeatherData?.map(
     (d: WeeklyWeatherInfo) => {
