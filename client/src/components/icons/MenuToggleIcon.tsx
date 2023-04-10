@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import styles from "../../pages/styles/test.module.scss";
+import styles from "../sidebarMenu/styles.module.scss";
 import { MouseEventHandler } from "react";
 
 interface PathProps {

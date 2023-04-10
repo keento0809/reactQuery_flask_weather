@@ -5,8 +5,12 @@ type Props = {
   onClick?: () => void;
 };
 
-const BasicButton = ({ text = "Back" }: Props) => {
-  return <button className={styles["basicButton"]}>{text}</button>;
+const BasicButton = ({ text = "Back", onClick }: Props) => {
+  return (
+    <button className={styles["basicButton"]} onClick={onClick && onClick}>
+      {text}
+    </button>
+  );
 };
 
 export default BasicButton;
