@@ -1,5 +1,5 @@
 import Dashboard from "../../components/dashboards/Dashboard";
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import {
   getCurrLocationWeather,
   getWeeklyLocationWeather,
@@ -59,11 +59,15 @@ const HomeContainer = () => {
     (d: WeeklyWeatherInfo, index: number) => (index + 1) % 8 === 0
   );
 
-  //
-  const handleChangeLocation = (value: LocationData) => {
+  // Change location when putting a location name in LocationInput
+  const handleChangeLocation = useCallback((value: LocationData) => {
     setLocation(value.label.split(",")[0]);
     toggleOpen();
-  };
+  }, []);
+  // const handleChangeLocation = (value: LocationData) => {
+  //   setLocation(value.label.split(",")[0]);
+  //   toggleOpen();
+  // };
 
   // If this boolean is true, we should keep showing Modal
   const isLoadingData =
@@ -77,6 +81,7 @@ const HomeContainer = () => {
         isOpen={isOpen}
         toggleOpen={toggleOpen}
       />
+      {/* {memorizedHeader} */}
       <div className={styles["home_container"]}>
         {isLoadingData && <Dashboard currData={currLocationWeatherData} />}
         {isLoadingData && (
