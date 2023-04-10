@@ -45,14 +45,19 @@ const Home = () => {
     },
   ]);
 
+  //
   const currLocationWeatherData =
     weatherQuery[CURRENT_LOCATION_WEATHER_INDEX].data;
 
+  //
   const weeklyWeatherData = weatherQuery[WEEKLY_WEATHER_INDEX].data;
+
+  //
   const sortedWeeklyWeatherData = weeklyWeatherData?.list.filter(
     (d: WeeklyWeatherInfo, index: number) => (index + 1) % 8 === 0
   );
 
+  //
   const handleChangeLocation = (value: LocationData) => {
     setLocation(value.label.split(",")[0]);
     toggleOpen();
