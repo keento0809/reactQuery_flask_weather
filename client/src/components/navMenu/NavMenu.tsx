@@ -6,7 +6,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { variantsForHeader } from "../header/module/motion";
 import { RxCross1 } from "react-icons/rx";
-import axios from "axios";
 import { Cycle } from "framer-motion";
 
 interface Props {
@@ -16,12 +15,6 @@ interface Props {
 }
 
 const NavMenu = ({ onChange, isOpen, toggleOpen }: Props) => {
-  // function jumping to google login page
-  const handleLogin = async () => {
-    const loginData = await axios.get(`http://127.0.0.1:5000/google`);
-    console.log(loginData);
-  };
-
   return (
     <div className={styles["navMenu"]}>
       {!isOpen && (
@@ -40,9 +33,12 @@ const NavMenu = ({ onChange, isOpen, toggleOpen }: Props) => {
           className={styles["navMenu_searchMode"]}
         >
           <LocationInput onChange={onChange} />
-          <span className={styles["navMenu_login"]} onClick={handleLogin}>
+          <a
+            className={styles["navMenu_login"]}
+            href="http://127.0.0.1:5000/google"
+          >
             Login
-          </span>
+          </a>
           <div className={styles["navMenu_close"]} onClick={() => toggleOpen()}>
             <RxCross1 />
           </div>
