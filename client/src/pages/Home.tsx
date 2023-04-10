@@ -1,44 +1,56 @@
 import Dashboard from "../components/dashboards/Dashboard";
 import { useState } from "react";
-import { getCurrLocationWeather } from "../queries/Queries";
+import {
+  getCurrLocationWeather,
+  getWeeklyLocationWeather,
+  getLatLog,
+} from "../queries/Queries";
 import { useCycle } from "framer-motion";
-import { useQuery } from "react-query";
-import WeeklyDashboard from "../components/dashboards/weeklyDashboard";
+import { useIsFetching, useQueries } from "react-query";
 import styles from "./styles/home.module.scss";
 import Header from "../components/header/Header";
 import Modal from "../components/modal/Modal";
-import { LocationData } from "../types/Location";
+import { LatLon, LocationData } from "../types/Location";
+import {
+  CURRENT_LOCATION_WEATHER_INDEX,
+  WEEKLY_WEATHER_INDEX,
+  LATLOG_INDEX,
+} from "../constants/queryKey";
+import { WeeklyWeatherInfo } from "../types/weather";
+import NewWeeklyDashboard from "../components/dashboards/NewWeekDashboard";
 
 const Home = () => {
   const [location, setLocation] = useState("Vancouver");
-  const [latLon, setLatLon] = useState({ lat: 49.2608724, lon: -123.113952 });
+  const [latLon, setLatLon] = useState<LatLon>({
+    lat: 49.2608724,
+    lon: -123.113952,
+  });
   const [isOpen, toggleOpen] = useCycle(false, true);
 
-  // Somehow replacing this function ended up crashing codes
-  const getLatLog = async () => {
-    const response = await fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=2&appid=${
-        import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY
-      }`
-    );
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const res = await response.json();
-    setLatLon({ lat: res[0]?.lat, lon: res[0]?.lon });
-    return res;
-  };
+  const isFetching = useIsFetching();
 
-  // Implement Query to fetch data (Lat & Lon)
-  useQuery(["latLom", location], getLatLog);
+  // declare useQueries for fetching both current location weather and weekly weather
+  const weatherQuery = useQueries([
+    {
+      queryKey: [["currLocationW", latLon], CURRENT_LOCATION_WEATHER_INDEX],
+      queryFn: () => getCurrLocationWeather(latLon),
+    },
+    {
+      queryKey: [["weeklyW", latLon], WEEKLY_WEATHER_INDEX],
+      queryFn: () => getWeeklyLocationWeather(latLon),
+    },
+    {
+      queryKey: [["location", location], LATLOG_INDEX],
+      queryFn: () => getLatLog(location, setLatLon),
+    },
+  ]);
 
-  // Implement Query to fetch data (Location)
-  const {
-    isLoading,
-    error,
-    data: currData,
-  } = useQuery(["currLocationWeather", latLon], () =>
-    getCurrLocationWeather(latLon)
+  const currLocationWeatherData =
+    weatherQuery[CURRENT_LOCATION_WEATHER_INDEX].data;
+
+  const weeklyWeatherData = weatherQuery[WEEKLY_WEATHER_INDEX].data;
+  const sortedWeeklyWeatherData = weeklyWeatherData?.list.filter(
+    (d: WeeklyWeatherInfo, index: number) => (index + 1) % 8 === 0
   );
 
   const handleChangeLocation = (value: LocationData) => {
@@ -46,18 +58,25 @@ const Home = () => {
     toggleOpen();
   };
 
+  const isLoadingData =
+    isFetching === 0 && !weatherQuery[WEEKLY_WEATHER_INDEX].isLoading;
+
   return (
     <div className={styles["home_wrapper"]}>
-      {!currData && <Modal />}
+      {isFetching !== 0 && <Modal />}
       <Header
         onChange={handleChangeLocation}
         isOpen={isOpen}
         toggleOpen={toggleOpen}
       />
       <div className={styles["home_container"]}>
-        {error && <div>An error has occurred,,,</div>}
-        {currData && <Dashboard currData={currData} />}
-        {currData && <WeeklyDashboard latLon={latLon} />}
+        {isLoadingData && <Dashboard currData={currLocationWeatherData} />}
+        {isLoadingData && (
+          <NewWeeklyDashboard
+            latLon={latLon}
+            weeklyWeatherData={sortedWeeklyWeatherData}
+          />
+        )}
       </div>
     </div>
   );
