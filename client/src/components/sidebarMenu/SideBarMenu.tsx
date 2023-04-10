@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useDimensions } from "./modules/use-dimentions";
 import { MenuToggleIcon } from "../icons/MenuToggleIcon";
-import { Navigation } from "../../features/Navigation";
+import { Navigation } from "./Navigation";
 import { sidebar } from "../../components/sidebarMenu/modules/motions";
 import styles from "../../pages/styles/test.module.scss";
 import { PropsWithToggleOpen } from "../../types/Location";
