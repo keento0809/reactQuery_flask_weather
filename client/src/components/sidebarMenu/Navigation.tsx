@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import { SIDEBAR_MENU } from "../../constants/sidebarMenu";
 import { variantsForNavigation } from "./modules/motions";
-import styles from "../../pages/styles/test.module.scss";
+import styles from "./styles.module.scss";
 import { PropsWithHandleChangeLocationFunc } from "../../types/Location";
 
 export const Navigation = ({

@@ -4,7 +4,7 @@ import { useDimensions } from "./modules/use-dimentions";
 import { MenuToggleIcon } from "../icons/MenuToggleIcon";
 import { Navigation } from "./Navigation";
 import { sidebar } from "../../components/sidebarMenu/modules/motions";
-import styles from "../../pages/styles/test.module.scss";
+import styles from "./styles.module.scss";
 import { PropsWithToggleOpen } from "../../types/Location";
 
 const SideBarMenu = ({ onChange, isOpen, toggleOpen }: PropsWithToggleOpen) => {
