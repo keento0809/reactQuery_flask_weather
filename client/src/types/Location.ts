@@ -39,3 +39,12 @@ export type LatLon = {
   lat: number;
   lon: number;
 };
+
+export type Location = {
+  country: string;
+  lat: number;
+  local_names: { [language: string]: string };
+  lon: number;
+  name: string;
+  state: string;
+};

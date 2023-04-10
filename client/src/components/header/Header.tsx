@@ -9,7 +9,7 @@ const Header = ({ onChange, isOpen, toggleOpen }: PropsWithToggleOpen) => {
   return (
     <header className={isMore1024 ? `${styles["header"]}` : ""}>
       {isMore1024 ? (
-        <NavMenu onChange={onChange} />
+        <NavMenu onChange={onChange} isOpen={isOpen} toggleOpen={toggleOpen} />
       ) : (
         <SideBarMenu
           onChange={onChange}
