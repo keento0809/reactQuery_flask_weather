@@ -59,15 +59,34 @@ const HomeContainer = () => {
     (d: WeeklyWeatherInfo, index: number) => (index + 1) % 8 === 0
   );
 
+  // Location name data for displaying the correct name of location
+  const locationNameData = weatherQuery[LATLOG_INDEX]?.data;
+
   // Change location when putting a location name in LocationInput
   const handleChangeLocation = useCallback((value: LocationData) => {
     setLocation(value.label.split(",")[0]);
     toggleOpen();
   }, []);
-  // const handleChangeLocation = (value: LocationData) => {
-  //   setLocation(value.label.split(",")[0]);
-  //   toggleOpen();
-  // };
+
+  // Memorized Dashboard component
+  const memorizedDashboard = useMemo(() => {
+    return (
+      <Dashboard
+        currData={currLocationWeatherData}
+        locationName={locationNameData && locationNameData[0].name}
+      />
+    );
+  }, [currLocationWeatherData, locationNameData]);
+
+  // Memorized WeeklyDashboard component
+  const memorizedWeeklyDashboard = useMemo(() => {
+    return (
+      <NewWeeklyDashboard
+        latLon={latLon}
+        weeklyWeatherData={sortedWeeklyWeatherData}
+      />
+    );
+  }, [latLon, sortedWeeklyWeatherData]);
 
   // If this boolean is true, we should keep showing Modal
   const isLoadingData =
@@ -81,15 +100,9 @@ const HomeContainer = () => {
         isOpen={isOpen}
         toggleOpen={toggleOpen}
       />
-      {/* {memorizedHeader} */}
       <div className={styles["home_container"]}>
-        {isLoadingData && <Dashboard currData={currLocationWeatherData} />}
-        {isLoadingData && (
-          <NewWeeklyDashboard
-            latLon={latLon}
-            weeklyWeatherData={sortedWeeklyWeatherData}
-          />
-        )}
+        {isLoadingData && memorizedDashboard}
+        {isLoadingData && memorizedWeeklyDashboard}
       </div>
     </div>
   );

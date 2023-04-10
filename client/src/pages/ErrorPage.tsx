@@ -8,8 +8,6 @@ const ErrorPage = () => {
   const navigate = useNavigate();
 
   const handleBackToMainPage = () => {
-    console.log("jumping to main page");
-    // TODO: add route to main page here
     navigate("/");
   };
 
