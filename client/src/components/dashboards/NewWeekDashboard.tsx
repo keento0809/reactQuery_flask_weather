@@ -5,17 +5,21 @@ import { LatLon } from "../../types/Location";
 import { WeeklyWeatherInfo } from "../../types/weather";
 
 type Props = {
-  latLon: LatLon;
   weeklyWeatherData: WeeklyWeatherInfo[];
 };
 
-const NewWeeklyDashboard = ({ latLon, weeklyWeatherData }: Props) => {
+const NewWeeklyDashboard = ({ weeklyWeatherData }: Props) => {
   //
   const isFetching = useIsFetching();
 
+  // Sorted weekly weather data to pick up five of them (weather data for next 5 days)
+  const sortedWeeklyWeatherData = weeklyWeatherData.filter(
+    (d: WeeklyWeatherInfo, index: number) => (index + 1) % 8 === 0
+  );
+
   console.log("render-weekly-dashboard");
 
-  const weeklyWeatherDataRender = weeklyWeatherData?.map(
+  const weeklyWeatherDataRender = sortedWeeklyWeatherData?.map(
     (d: WeeklyWeatherInfo) => {
       const date = new Date(d.dt_txt.split(" ")[0]);
       const dateInfo = date
