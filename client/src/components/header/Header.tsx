@@ -6,6 +6,7 @@ import { useMemo } from "react";
 
 const Header = ({ onChange, isOpen, toggleOpen }: PropsWithToggleOpen) => {
   const isMore1024 = window.innerWidth >= 1024;
+  console.log("render-header");
 
   // Memorized NavMenu component for better performances
   const memorizedNavMenu = useMemo(() => {

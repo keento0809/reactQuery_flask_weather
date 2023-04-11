@@ -68,6 +68,17 @@ const HomeContainer = () => {
     toggleOpen();
   }, []);
 
+  // Memorized Header component
+  const memorizedHeader = useMemo(() => {
+    return (
+      <Header
+        onChange={handleChangeLocation}
+        isOpen={isOpen}
+        toggleOpen={toggleOpen}
+      />
+    );
+  }, [isOpen]);
+
   // Memorized Dashboard component
   const memorizedDashboard = useMemo(() => {
     return (
@@ -82,8 +93,9 @@ const HomeContainer = () => {
   const memorizedWeeklyDashboard = useMemo(() => {
     return (
       <NewWeeklyDashboard
-        latLon={latLon}
-        weeklyWeatherData={sortedWeeklyWeatherData}
+        // latLon={latLon}
+        weeklyWeatherData={weeklyWeatherData && weeklyWeatherData.list}
+        // weeklyWeatherData={sortedWeeklyWeatherData}
       />
     );
   }, [latLon, sortedWeeklyWeatherData]);
@@ -95,11 +107,7 @@ const HomeContainer = () => {
   return (
     <div className={styles["home_wrapper"]}>
       {isFetching !== 0 && !isLoadingData && <Modal />}
-      <Header
-        onChange={handleChangeLocation}
-        isOpen={isOpen}
-        toggleOpen={toggleOpen}
-      />
+      {memorizedHeader}
       <div className={styles["home_container"]}>
         {isLoadingData && memorizedDashboard}
         {isLoadingData && memorizedWeeklyDashboard}

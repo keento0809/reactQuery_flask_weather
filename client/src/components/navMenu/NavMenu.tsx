@@ -2,7 +2,6 @@ import { LocationData } from "../../types/Location";
 import LocationInput from "../inputs/LocationInput";
 import styles from "./styles.module.scss";
 import SearchIcon from "../icons/SearchIcon";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { variantsForHeader } from "../header/module/motion";
 import { RxCross1 } from "react-icons/rx";
@@ -15,6 +14,7 @@ interface Props {
 }
 
 const NavMenu = ({ onChange, isOpen, toggleOpen }: Props) => {
+  console.log("render-navMenu");
   return (
     <div className={styles["navMenu"]}>
       {!isOpen && (
