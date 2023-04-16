@@ -17,8 +17,6 @@ const NewWeeklyDashboard = ({ weeklyWeatherData }: Props) => {
     (d: WeeklyWeatherInfo, index: number) => (index + 1) % 8 === 0
   );
 
-  console.log("render-weekly-dashboard");
-
   const weeklyWeatherDataRender = sortedWeeklyWeatherData?.map(
     (d: WeeklyWeatherInfo) => {
       const date = new Date(d.dt_txt.split(" ")[0]);
