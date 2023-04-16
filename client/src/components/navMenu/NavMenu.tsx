@@ -14,7 +14,6 @@ interface Props {
 }
 
 const NavMenu = ({ onChange, isOpen, toggleOpen }: Props) => {
-  console.log("render-navMenu");
   return (
     <div className={styles["navMenu"]}>
       {!isOpen && (

@@ -8,7 +8,6 @@ type Props = {
 };
 
 const Dashboard = ({ currData, locationName }: Props) => {
-  console.log("render-dashboard");
   return (
     <div className={styles["dashboard_container"]}>
       <div className={styles["dashboard_contents"]}>
